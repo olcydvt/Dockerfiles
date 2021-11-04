@@ -24,6 +24,7 @@ RUN         apt-get update \
 					g++-9-multilib \
 					xutils-dev \
 					patch \
+					libgtk2.0-dev \
 				&& apt-get install -y libstdc++-11-dev \
 				&& apt-get install -y python3-pip
 
