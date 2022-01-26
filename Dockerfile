@@ -25,8 +25,9 @@ RUN         apt-get update \
 					xutils-dev \
 					patch \
 					libgtk2.0-dev \
+                                        cython python3-dev python-setuptools \
 				&& apt-get install -y libstdc++-11-dev \
-				&& apt-get install -y python3-pip
+				&& apt-get install -y libboost-all-dev
 
 RUN 		pip3 install conan==1.33.0			
 RUN 		conan  profile new --detect default
