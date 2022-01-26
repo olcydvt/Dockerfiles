@@ -31,3 +31,18 @@ RUN         apt-get update \
 RUN 		pip3 install conan==1.33.0			
 RUN 		conan  profile new --detect default
 RUN 		conan  profile update settings.compiler.libcxx=libstdc++11 default
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        git clang make binutils autoconf automake autotools-dev libtool \
+        pkg-config \
+        zlib1g-dev libev-dev libjemalloc-dev ruby-dev libc-ares-dev bison \
+        libelf-dev
+
+RUN git clone --depth 1 -b OpenSSL_1_1_1m+quic https://github.com/quictls/openssl && \
+    cd openssl && \
+    ./config --openssldir=/etc/ssl && \
+    make -j$(nproc) && \
+    make install_sw && \
+    cd .. && \
+    rm -rf openssl
