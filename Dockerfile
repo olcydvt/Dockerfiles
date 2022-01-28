@@ -25,7 +25,7 @@ RUN         apt-get update \
 					xutils-dev \
 					patch \
 					libgtk2.0-dev \
-                                        cython python3-dev python-setuptools \
+                                        cython python3-dev python-setuptools  python3-pip \
 				&& apt-get install -y libstdc++-11-dev \
 				&& apt-get install -y libboost-all-dev
 
